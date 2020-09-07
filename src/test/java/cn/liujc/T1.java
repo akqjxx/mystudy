@@ -48,9 +48,10 @@ public class T1 {
                 "akqjxx110@");
         session.setUserInfo(new MyUserInfo());
         Channel channel = session.openChannel("exec");
-        ((ChannelExec)channel).setCommand("echo zhangwu |tee b.txt");
+        ((ChannelExec) channel).setCommand("echo zhangwu |tee b.txt");
+        ((ChannelExec) channel).setCommand("hahhahha");
         channel.setInputStream(null);
-        ((ChannelExec)channel).setErrStream(System.err);
+        ((ChannelExec) channel).setErrStream(System.err);
         //((ChannelShell)channel).setPtyType("vt102");
 //        session.setConfig("StrictHostKeyChecking", "yes");
         channel.connect();
@@ -60,7 +61,7 @@ public class T1 {
         ) {
 
             //printStream.println("echo 'hello' >> a.txt");
-           // printStream.println("uname");
+            // printStream.println("uname");
             int res = -1;
             StringBuffer buf = new StringBuffer(1024);
             byte[] tmp = new byte[1024];
@@ -77,7 +78,7 @@ public class T1 {
                 }
                 TimeUnit.MILLISECONDS.sleep(100);
             }
-            System.out.println("buf="+ buf);
+            System.out.println("buf=" + buf);
 
         } catch (Exception e) {
             e.printStackTrace();
